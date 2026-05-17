@@ -20,6 +20,18 @@ const GAMES = [
   { id: 14, name: "Aztec Magic", category: "Слоты", rtp: "96.7%", badge: "new", emoji: "🏺", players: 540, bg: "from-emerald-900/60 to-green-900/60", border: "border-emerald-500/30", provider: "BGaming", maxWin: "×3000" },
   { id: 15, name: "Money Train 4", category: "Слоты", rtp: "96.0%", badge: "hot", emoji: "🚂", players: 1760, bg: "from-red-900/60 to-orange-900/60", border: "border-red-400/30", provider: "Relax", maxWin: "×100000" },
   { id: 16, name: "Dog House", category: "Слоты", rtp: "96.5%", badge: null, emoji: "🐕", players: 820, bg: "from-cyan-900/60 to-teal-900/60", border: "border-teal-500/30", provider: "Pragmatic", maxWin: "×7000" },
+  { id: 17, name: "Big Bass Bonanza", category: "Слоты", rtp: "96.7%", badge: "hot", emoji: "🎣", players: 3120, bg: "from-blue-900/60 to-cyan-900/60", border: "border-blue-500/30", provider: "Pragmatic", maxWin: "×4000" },
+  { id: 18, name: "The Dog House Megaways", category: "Слоты", rtp: "96.5%", badge: null, emoji: "🦴", players: 1450, bg: "from-yellow-900/60 to-lime-900/60", border: "border-yellow-400/30", provider: "Pragmatic", maxWin: "×12305" },
+  { id: 19, name: "Fruit Party", category: "Слоты", rtp: "96.5%", badge: "new", emoji: "🍉", players: 980, bg: "from-green-900/60 to-emerald-900/60", border: "border-green-400/30", provider: "Pragmatic", maxWin: "×5000" },
+  { id: 20, name: "Wild West Gold", category: "Слоты", rtp: "96.5%", badge: "hot", emoji: "🤠", players: 2670, bg: "from-amber-900/60 to-orange-900/60", border: "border-amber-400/30", provider: "Pragmatic", maxWin: "×10000" },
+  { id: 21, name: "Joker's Jewels", category: "Слоты", rtp: "96.5%", badge: null, emoji: "🃏", players: 610, bg: "from-rose-900/60 to-red-900/60", border: "border-rose-500/30", provider: "Pragmatic", maxWin: "×1000" },
+  { id: 22, name: "Mustang Gold", category: "Слоты", rtp: "96.5%", badge: null, emoji: "🐎", players: 890, bg: "from-orange-900/60 to-red-900/60", border: "border-orange-500/30", provider: "Pragmatic", maxWin: "×10000" },
+  { id: 23, name: "Hot to Burn", category: "Слоты", rtp: "96.7%", badge: null, emoji: "🔥", players: 540, bg: "from-red-900/60 to-yellow-900/60", border: "border-red-300/30", provider: "Pragmatic", maxWin: "×500" },
+  { id: 24, name: "Extra Juicy Megaways", category: "Слоты", rtp: "96.4%", badge: "new", emoji: "🍊", players: 720, bg: "from-orange-900/60 to-amber-900/60", border: "border-orange-300/30", provider: "Pragmatic", maxWin: "×5000" },
+  { id: 25, name: "Gems Bonanza", category: "Слоты", rtp: "96.5%", badge: null, emoji: "💎", players: 1130, bg: "from-violet-900/60 to-purple-900/60", border: "border-violet-400/30", provider: "Pragmatic", maxWin: "×10000" },
+  { id: 26, name: "Pirate Gold Deluxe", category: "Слоты", rtp: "96.5%", badge: null, emoji: "☠️", players: 480, bg: "from-teal-900/60 to-cyan-900/60", border: "border-teal-400/30", provider: "Pragmatic", maxWin: "×6000" },
+  { id: 27, name: "Striking Hot 5", category: "Слоты", rtp: "96.5%", badge: "new", emoji: "🌶️", players: 390, bg: "from-red-900/60 to-rose-900/60", border: "border-red-400/30", provider: "Pragmatic", maxWin: "×500" },
+  { id: 28, name: "Buffalo King Megaways", category: "Слоты", rtp: "96.5%", badge: "hot", emoji: "🦬", players: 1870, bg: "from-stone-900/60 to-amber-900/60", border: "border-stone-400/30", provider: "Pragmatic", maxWin: "×11000" },
 ];
 
 const SLOT_SYMBOLS = ["🍒", "🍋", "🍇", "🔔", "⭐", "💎", "7️⃣", "🃏"];
@@ -267,10 +279,15 @@ function HomeSection({ setActiveSection }: { setActiveSection: (s: Section) => v
 /* ── GAMES ── */
 function GamesSection() {
   const [filter, setFilter] = useState("Все");
+  const [providerFilter, setProviderFilter] = useState("Все");
   const [slotOpen, setSlotOpen] = useState<number | null>(null);
   const categories = ["Все", "Слоты", "Покер", "Рулетка", "Краш", "Кости"];
   const filtered = filter === "Все" ? GAMES : GAMES.filter(g => g.category === filter);
-  const slots = GAMES.filter(g => g.category === "Слоты");
+  const allSlots = GAMES.filter(g => g.category === "Слоты");
+  const providers = ["Все", "Pragmatic", "PG Soft", "NetEnt", "Play'n GO", "Relax", "BGaming"];
+  const slots = providerFilter === "Все"
+    ? allSlots
+    : allSlots.filter(g => g.provider === providerFilter);
 
   return (
     <div className="animate-fade-in">
@@ -281,7 +298,7 @@ function GamesSection() {
 
       <div className="flex gap-2 flex-wrap mb-8">
         {categories.map((cat) => (
-          <button key={cat} onClick={() => setFilter(cat)}
+          <button key={cat} onClick={() => { setFilter(cat); setProviderFilter("Все"); }}
             className={`px-4 py-2 rounded-full text-sm font-display font-semibold transition-all duration-200 ${filter === cat ? "text-[var(--bg-deep)]" : "text-gray-400 hover:text-white"}`}
             style={filter === cat
               ? { background: "linear-gradient(135deg, var(--neon-purple), var(--neon-cyan))", boxShadow: "0 0 20px rgba(155,71,255,0.4)" }
@@ -294,12 +311,47 @@ function GamesSection() {
       {/* Slots spotlight section */}
       {(filter === "Все" || filter === "Слоты") && (
         <div className="mb-10">
-          <div className="flex items-center gap-3 mb-5">
+          <div className="flex items-center gap-3 mb-4 flex-wrap">
             <span className="text-2xl">🎰</span>
             <h3 className="font-display font-bold text-xl text-white">Слоты</h3>
             <span className="badge-hot ml-1">POPULAR</span>
             <span className="font-body text-xs text-gray-500 ml-auto">{slots.length} слотов</span>
           </div>
+
+          {/* Provider filter */}
+          <div className="flex gap-2 flex-wrap mb-5">
+            {providers.map((p) => {
+              const isPragmatic = p === "Pragmatic";
+              const isActive = providerFilter === p;
+              return (
+                <button key={p} onClick={() => setProviderFilter(p)}
+                  className="px-3 py-1.5 rounded-lg text-xs font-display font-semibold transition-all duration-200"
+                  style={isActive
+                    ? { background: isPragmatic ? "linear-gradient(135deg, #ff6b35, #ff2d78)" : "rgba(155,71,255,0.3)", color: "white", border: isPragmatic ? "1px solid rgba(255,107,53,0.6)" : "1px solid rgba(155,71,255,0.5)", boxShadow: isPragmatic ? "0 0 15px rgba(255,107,53,0.4)" : "0 0 15px rgba(155,71,255,0.3)" }
+                    : { background: "rgba(255,255,255,0.04)", color: isPragmatic ? "#ff8c5a" : "#9ca3af", border: isPragmatic ? "1px solid rgba(255,107,53,0.25)" : "1px solid rgba(255,255,255,0.08)" }
+                  }>
+                  {isPragmatic ? "🔥 " : ""}{p}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Pragmatic spotlight banner */}
+          {providerFilter === "Pragmatic" && (
+            <div className="mb-6 p-4 rounded-xl flex items-center gap-4" style={{ background: "linear-gradient(135deg, rgba(255,107,53,0.12), rgba(255,45,120,0.08))", border: "1px solid rgba(255,107,53,0.3)" }}>
+              <div className="text-3xl">🔥</div>
+              <div>
+                <div className="font-display font-bold text-sm text-white">Pragmatic Play</div>
+                <div className="font-body text-xs text-gray-400">Официальный провайдер · {allSlots.filter(g => g.provider === "Pragmatic").length} слотов · RTP до 96.8%</div>
+              </div>
+              <div className="ml-auto flex gap-4 text-center">
+                <div>
+                  <div className="font-display font-black text-lg" style={{ color: "#ff6b35" }}>×21100</div>
+                  <div className="font-body text-xs text-gray-500">Макс. выигрыш</div>
+                </div>
+              </div>
+            </div>
+          )}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {slots.map((game) => (
               <SlotCard key={game.id} game={game} onPlay={() => setSlotOpen(game.id)} />
