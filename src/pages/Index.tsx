@@ -4,13 +4,25 @@ import Icon from "@/components/ui/icon";
 type Section = "home" | "games" | "bonuses" | "payments" | "leaderboard" | "help";
 
 const GAMES = [
-  { id: 1, name: "Neon Slots", category: "Слоты", rtp: "96.5%", badge: "hot", emoji: "🎰", players: 1842, bg: "from-purple-900/60 to-pink-900/60", border: "border-pink-500/30" },
-  { id: 2, name: "Cyber Poker", category: "Покер", rtp: "98.2%", badge: "new", emoji: "🃏", players: 634, bg: "from-cyan-900/60 to-blue-900/60", border: "border-cyan-500/30" },
-  { id: 3, name: "Dragon Crash", category: "Краш", rtp: "97.0%", badge: "hot", emoji: "🐉", players: 3210, bg: "from-orange-900/60 to-red-900/60", border: "border-orange-500/30" },
-  { id: 4, name: "Galaxy Roulette", category: "Рулетка", rtp: "97.3%", badge: null, emoji: "🌌", players: 521, bg: "from-indigo-900/60 to-purple-900/60", border: "border-indigo-500/30" },
-  { id: 5, name: "Gold Rush", category: "Слоты", rtp: "95.8%", badge: null, emoji: "⚡", players: 988, bg: "from-yellow-900/60 to-amber-900/60", border: "border-yellow-500/30" },
-  { id: 6, name: "Quantum Dice", category: "Кости", rtp: "99.1%", badge: "new", emoji: "🎲", players: 412, bg: "from-green-900/60 to-teal-900/60", border: "border-green-500/30" },
+  { id: 1, name: "Neon Slots", category: "Слоты", rtp: "96.5%", badge: "hot", emoji: "🎰", players: 1842, bg: "from-purple-900/60 to-pink-900/60", border: "border-pink-500/30", provider: "NetEnt", maxWin: "×5000" },
+  { id: 2, name: "Cyber Poker", category: "Покер", rtp: "98.2%", badge: "new", emoji: "🃏", players: 634, bg: "from-cyan-900/60 to-blue-900/60", border: "border-cyan-500/30", provider: "Evolution", maxWin: "×200" },
+  { id: 3, name: "Dragon Crash", category: "Краш", rtp: "97.0%", badge: "hot", emoji: "🐉", players: 3210, bg: "from-orange-900/60 to-red-900/60", border: "border-orange-500/30", provider: "Spribe", maxWin: "×∞" },
+  { id: 4, name: "Galaxy Roulette", category: "Рулетка", rtp: "97.3%", badge: null, emoji: "🌌", players: 521, bg: "from-indigo-900/60 to-purple-900/60", border: "border-indigo-500/30", provider: "Evolution", maxWin: "×36" },
+  { id: 5, name: "Gold Rush", category: "Слоты", rtp: "95.8%", badge: null, emoji: "⚡", players: 988, bg: "from-yellow-900/60 to-amber-900/60", border: "border-yellow-500/30", provider: "Pragmatic", maxWin: "×10000" },
+  { id: 6, name: "Quantum Dice", category: "Кости", rtp: "99.1%", badge: "new", emoji: "🎲", players: 412, bg: "from-green-900/60 to-teal-900/60", border: "border-green-500/30", provider: "BGaming", maxWin: "×100" },
+  { id: 7, name: "Cyber Fruits", category: "Слоты", rtp: "96.2%", badge: "hot", emoji: "🍒", players: 2140, bg: "from-red-900/60 to-rose-900/60", border: "border-red-500/30", provider: "Pragmatic", maxWin: "×8000" },
+  { id: 8, name: "Fortune Tiger", category: "Слоты", rtp: "96.8%", badge: "hot", emoji: "🐯", players: 3850, bg: "from-orange-900/60 to-yellow-900/60", border: "border-orange-400/30", provider: "PG Soft", maxWin: "×2500" },
+  { id: 9, name: "Starlight Princess", category: "Слоты", rtp: "96.5%", badge: "new", emoji: "⭐", players: 1620, bg: "from-pink-900/60 to-fuchsia-900/60", border: "border-pink-400/30", provider: "Pragmatic", maxWin: "×5000" },
+  { id: 10, name: "Book of Dead", category: "Слоты", rtp: "96.2%", badge: null, emoji: "📖", players: 970, bg: "from-amber-900/60 to-stone-900/60", border: "border-amber-500/30", provider: "Play'n GO", maxWin: "×5000" },
+  { id: 11, name: "Sweet Bonanza", category: "Слоты", rtp: "96.5%", badge: "hot", emoji: "🍭", players: 2890, bg: "from-purple-900/60 to-violet-900/60", border: "border-violet-500/30", provider: "Pragmatic", maxWin: "×21100" },
+  { id: 12, name: "Gates of Olympus", category: "Слоты", rtp: "96.5%", badge: "hot", emoji: "⚡", players: 4210, bg: "from-blue-900/60 to-indigo-900/60", border: "border-blue-400/30", provider: "Pragmatic", maxWin: "×15000" },
+  { id: 13, name: "Wolf Gold", category: "Слоты", rtp: "96.0%", badge: null, emoji: "🐺", players: 730, bg: "from-slate-900/60 to-zinc-900/60", border: "border-slate-500/30", provider: "Pragmatic", maxWin: "×2500" },
+  { id: 14, name: "Aztec Magic", category: "Слоты", rtp: "96.7%", badge: "new", emoji: "🏺", players: 540, bg: "from-emerald-900/60 to-green-900/60", border: "border-emerald-500/30", provider: "BGaming", maxWin: "×3000" },
+  { id: 15, name: "Money Train 4", category: "Слоты", rtp: "96.0%", badge: "hot", emoji: "🚂", players: 1760, bg: "from-red-900/60 to-orange-900/60", border: "border-red-400/30", provider: "Relax", maxWin: "×100000" },
+  { id: 16, name: "Dog House", category: "Слоты", rtp: "96.5%", badge: null, emoji: "🐕", players: 820, bg: "from-cyan-900/60 to-teal-900/60", border: "border-teal-500/30", provider: "Pragmatic", maxWin: "×7000" },
 ];
+
+const SLOT_SYMBOLS = ["🍒", "🍋", "🍇", "🔔", "⭐", "💎", "7️⃣", "🃏"];
 
 const BONUSES = [
   { icon: "🎁", title: "Приветственный бонус", desc: "200% на первый депозит до 5 BTC", value: "+200%", color: "var(--neon-purple)", glow: "rgba(155,71,255,0.3)" },
@@ -255,8 +267,10 @@ function HomeSection({ setActiveSection }: { setActiveSection: (s: Section) => v
 /* ── GAMES ── */
 function GamesSection() {
   const [filter, setFilter] = useState("Все");
+  const [slotOpen, setSlotOpen] = useState<number | null>(null);
   const categories = ["Все", "Слоты", "Покер", "Рулетка", "Краш", "Кости"];
   const filtered = filter === "Все" ? GAMES : GAMES.filter(g => g.category === filter);
+  const slots = GAMES.filter(g => g.category === "Слоты");
 
   return (
     <div className="animate-fade-in">
@@ -264,6 +278,7 @@ function GamesSection() {
         <h2 className="font-display font-black text-3xl md:text-4xl text-white mb-2">🎮 Игры</h2>
         <p className="font-body text-gray-500">3,500+ игр от ведущих провайдеров</p>
       </div>
+
       <div className="flex gap-2 flex-wrap mb-8">
         {categories.map((cat) => (
           <button key={cat} onClick={() => setFilter(cat)}
@@ -275,11 +290,224 @@ function GamesSection() {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-        {filtered.map((game) => <GameCard key={game.id} game={game} large />)}
+
+      {/* Slots spotlight section */}
+      {(filter === "Все" || filter === "Слоты") && (
+        <div className="mb-10">
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-2xl">🎰</span>
+            <h3 className="font-display font-bold text-xl text-white">Слоты</h3>
+            <span className="badge-hot ml-1">POPULAR</span>
+            <span className="font-body text-xs text-gray-500 ml-auto">{slots.length} слотов</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {slots.map((game) => (
+              <SlotCard key={game.id} game={game} onPlay={() => setSlotOpen(game.id)} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Other games */}
+      {filter !== "Слоты" && (
+        <>
+          {filter === "Все" && (
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-2xl">🃏</span>
+              <h3 className="font-display font-bold text-xl text-white">Другие игры</h3>
+            </div>
+          )}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+            {filtered.filter(g => g.category !== "Слоты").map((game) => (
+              <GameCard key={game.id} game={game} large />
+            ))}
+          </div>
+        </>
+      )}
+
+      {/* Slot simulator modal */}
+      {slotOpen !== null && (
+        <SlotSimulator
+          game={GAMES.find(g => g.id === slotOpen)!}
+          onClose={() => setSlotOpen(null)}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ── SLOT CARD ── */
+function SlotCard({ game, onPlay }: { game: typeof GAMES[0]; onPlay: () => void }) {
+  return (
+    <div className={`card-neon overflow-hidden group cursor-pointer ${game.border} relative`}>
+      <div className={`h-36 bg-gradient-to-br ${game.bg} flex items-center justify-center relative`}>
+        <span className="text-5xl group-hover:scale-125 transition-transform duration-300">{game.emoji}</span>
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
+        {game.badge && (
+          <div className="absolute top-2 right-2">
+            {game.badge === "hot" ? <span className="badge-hot">HOT</span> : <span className="badge-new">NEW</span>}
+          </div>
+        )}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <button
+            onClick={onPlay}
+            className="px-4 py-2 rounded-lg font-display font-bold text-xs text-white"
+            style={{ background: "linear-gradient(135deg, var(--neon-purple), var(--neon-cyan))", boxShadow: "0 0 20px rgba(155,71,255,0.6)" }}
+          >
+            ▶ Демо
+          </button>
+        </div>
       </div>
-      <div className="text-center mt-10">
-        <button className="btn-outline-neon px-8">Загрузить ещё игры</button>
+      <div className="p-3">
+        <h3 className="font-display font-bold text-xs text-white truncate mb-1">{game.name}</h3>
+        <div className="flex items-center justify-between text-xs font-body text-gray-500">
+          <span className="neon-text-green">{game.rtp}</span>
+          <span className="neon-text-gold">{game.maxWin}</span>
+        </div>
+        <div className="text-xs text-gray-600 font-body mt-1">{game.provider}</div>
+      </div>
+    </div>
+  );
+}
+
+/* ── SLOT SIMULATOR ── */
+function SlotSimulator({ game, onClose }: { game: typeof GAMES[0]; onClose: () => void }) {
+  const [reels, setReels] = useState<string[][]>([
+    ["🍒", "🍋", "💎"],
+    ["🔔", "⭐", "🍒"],
+    ["💎", "7️⃣", "🍇"],
+  ]);
+  const [spinning, setSpinning] = useState(false);
+  const [balance, setBalance] = useState(1000);
+  const [bet, setBet] = useState(10);
+  const [lastWin, setLastWin] = useState<number | null>(null);
+  const [spinCount, setSpinCount] = useState(0);
+
+  const spin = () => {
+    if (spinning || balance < bet) return;
+    setSpinning(true);
+    setLastWin(null);
+    setBalance(b => b - bet);
+
+    let ticks = 0;
+    const interval = setInterval(() => {
+      setReels([
+        [SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)]],
+        [SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)]],
+        [SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)]],
+      ]);
+      ticks++;
+      if (ticks >= 12) {
+        clearInterval(interval);
+        const finalReels: string[][] = [
+          [SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)]],
+          [SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)]],
+          [SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)], SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)]],
+        ];
+        // Occasionally force a win for fun
+        const newCount = spinCount + 1;
+        setSpinCount(newCount);
+        if (newCount % 4 === 0) {
+          const sym = SLOT_SYMBOLS[Math.floor(Math.random() * SLOT_SYMBOLS.length)];
+          finalReels[0][1] = sym;
+          finalReels[1][1] = sym;
+          finalReels[2][1] = sym;
+        }
+        setReels(finalReels);
+        const mid = [finalReels[0][1], finalReels[1][1], finalReels[2][1]];
+        if (mid[0] === mid[1] && mid[1] === mid[2]) {
+          const multipliers: Record<string, number> = { "💎": 50, "7️⃣": 30, "⭐": 20, "🔔": 15, "🍇": 10, "🍋": 8, "🍒": 5, "🃏": 3 };
+          const win = bet * (multipliers[mid[0]] || 5);
+          setLastWin(win);
+          setBalance(b => b + win);
+        }
+        setSpinning(false);
+      }
+    }, 80);
+  };
+
+  const isWin = lastWin !== null && lastWin > 0;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(10px)" }}>
+      <div className="w-full max-w-md rounded-2xl overflow-hidden" style={{ background: "var(--bg-card2)", border: "1px solid rgba(155,71,255,0.4)", boxShadow: "0 0 60px rgba(155,71,255,0.3)" }}>
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4" style={{ background: "rgba(155,71,255,0.1)", borderBottom: "1px solid rgba(155,71,255,0.2)" }}>
+          <div className="flex items-center gap-3">
+            <span className="text-2xl">{game.emoji}</span>
+            <div>
+              <div className="font-display font-bold text-sm text-white">{game.name}</div>
+              <div className="font-body text-xs text-gray-500">{game.provider} · RTP {game.rtp}</div>
+            </div>
+          </div>
+          <button onClick={onClose} className="text-gray-500 hover:text-white transition-colors">
+            <Icon name="X" size={20} />
+          </button>
+        </div>
+
+        <div className="p-6">
+          {/* Reels */}
+          <div className="relative rounded-xl overflow-hidden mb-4" style={{ background: "rgba(0,0,0,0.5)", border: "2px solid rgba(155,71,255,0.3)" }}>
+            {isWin && (
+              <div className="absolute inset-0 pointer-events-none animate-pulse-neon" style={{ background: "linear-gradient(135deg, rgba(255,215,0,0.1), rgba(155,71,255,0.1))" }} />
+            )}
+            <div className="grid grid-cols-3 gap-1 p-4">
+              {reels.map((reel, ri) => (
+                <div key={ri} className="flex flex-col gap-1">
+                  {reel.map((sym, si) => (
+                    <div key={si} className={`h-16 rounded-lg flex items-center justify-center text-3xl transition-all duration-75 ${si === 1 ? "ring-1" : ""} ${spinning ? "opacity-70" : ""}`}
+                      style={si === 1 ? { background: "rgba(155,71,255,0.15)", ringColor: "rgba(155,71,255,0.5)" } : { background: "rgba(255,255,255,0.03)" }}>
+                      {sym}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+            {/* Payline indicator */}
+            <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px pointer-events-none" style={{ background: "linear-gradient(90deg, transparent, rgba(255,215,0,0.6), transparent)" }} />
+          </div>
+
+          {/* Win message */}
+          {isWin && (
+            <div className="text-center mb-4 p-3 rounded-xl animate-scale-in" style={{ background: "rgba(255,215,0,0.1)", border: "1px solid rgba(255,215,0,0.3)" }}>
+              <div className="font-display font-black text-2xl neon-text-gold">🎉 ВЫИГРЫШ!</div>
+              <div className="font-display font-bold text-xl text-white">+{lastWin} монет</div>
+            </div>
+          )}
+          {lastWin === 0 && (
+            <div className="text-center mb-4 p-2 rounded-xl" style={{ background: "rgba(255,255,255,0.03)" }}>
+              <div className="font-body text-sm text-gray-500">Не повезло, попробуй ещё раз!</div>
+            </div>
+          )}
+
+          {/* Balance & Bet */}
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            <div className="p-3 rounded-xl text-center" style={{ background: "rgba(0,245,255,0.05)", border: "1px solid rgba(0,245,255,0.15)" }}>
+              <div className="font-body text-xs text-gray-500 mb-1">Баланс</div>
+              <div className="font-display font-black text-lg neon-text-cyan">{balance}</div>
+            </div>
+            <div className="p-3 rounded-xl text-center" style={{ background: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.15)" }}>
+              <div className="font-body text-xs text-gray-500 mb-1">Ставка</div>
+              <div className="flex items-center justify-center gap-2">
+                <button onClick={() => setBet(b => Math.max(5, b - 5))} className="text-gray-400 hover:text-white w-5 h-5 font-bold">−</button>
+                <span className="font-display font-black text-lg neon-text-gold">{bet}</span>
+                <button onClick={() => setBet(b => Math.min(balance, b + 5))} className="text-gray-400 hover:text-white w-5 h-5 font-bold">+</button>
+              </div>
+            </div>
+          </div>
+
+          {/* Spin button */}
+          <button
+            onClick={spin}
+            disabled={spinning || balance < bet}
+            className="w-full py-4 rounded-xl font-display font-black text-lg text-white transition-all duration-200 disabled:opacity-50"
+            style={{ background: spinning ? "rgba(155,71,255,0.4)" : "linear-gradient(135deg, #7b2ff7, #00f5ff)", boxShadow: spinning ? "none" : "0 0 30px rgba(155,71,255,0.5)" }}
+          >
+            {spinning ? "⟳ КРУТИТСЯ..." : "⚡ КРУТИТЬ"}
+          </button>
+
+          <p className="text-center font-body text-xs text-gray-600 mt-3">Демо-режим · Виртуальные монеты</p>
+        </div>
       </div>
     </div>
   );
